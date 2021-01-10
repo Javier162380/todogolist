@@ -15,7 +15,7 @@ func FormatTaskTimestamp(taskString string) (time.Time, error) {
 	t, err := time.Parse(time.RFC3339, taskString)
 
 	if err != nil {
-		t, err := time.Parse("2020-01-01", taskString)
+		t, err := time.Parse("2006-01-02", taskString)
 		if err != nil {
 			return t, err
 		}

@@ -16,6 +16,9 @@ func TestValidCreateTaskCommand(t *testing.T) {
 	}{{
 		Input:  []string{"create", "--task-name", "test", "--task-label", "sport", "--task-periodicity", "w", "--task-date", "2020-10-10T00:00:00.000Z"},
 		Output: "Task Created Succesfully",
+	}, {
+		Input:  []string{"create", "--task-name", "test", "--task-label", "sport", "--task-date", "2020-10-10T00:00:00.000Z"},
+		Output: "Task Created Succesfully",
 	},
 		{
 			Input:  []string{"create", "--task-name", "test", "--task-label", "work", "--task-periodicity", "w", "--task-date", "2020-10-10T00:00:00.000Z"},
@@ -58,8 +61,12 @@ func TestInvalidCreateTaskCommand(t *testing.T) {
 		TestCase: `Invalid Task Label`,
 	}, {
 		Input:    []string{"create", "--task-date", "dummy"},
-		Output:   `parsing time "dummy" as "2020-01-01": cannot parse "dummy" as "2"`,
+		Output:   `parsing time "dummy" as "2006-01-02": cannot parse "dummy" as "2006"`,
 		TestCase: `Invalid Task Date`,
+	}, {
+		Input:    []string{"create", "--task-name", "test", "--task-periodicity", "y"},
+		Output:   `Task Periodicity do not match a valid task periodicity`,
+		TestCase: `test invalid periodicity`,
 	}}
 
 	for _, tc := range testcases {

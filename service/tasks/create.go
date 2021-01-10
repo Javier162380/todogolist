@@ -72,6 +72,10 @@ func Create(taskName string, taskLabel string, taskDate string, debugMode bool, 
 
 	taskInstances := []models.TaskDomain{}
 
+	if taskLabel == "" {
+		taskLabel = "unknow"
+	}
+
 	err = service.ValidateStringField(taskLabel, validTaskLabels, `Task Label do not match a valid task label`)
 
 	if err != nil {

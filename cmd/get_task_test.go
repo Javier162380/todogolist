@@ -44,11 +44,11 @@ func TestInvalidGetTaskCommand(t *testing.T) {
 		TestName string
 	}{{
 		Input:    []string{"get", "--start-date", "dummy"},
-		Output:   `parsing time "dummy" as "2020-01-01": cannot parse "dummy" as "2"`,
+		Output:   `parsing time "dummy" as "2006-01-02": cannot parse "dummy" as "2006"`,
 		TestName: "Invalid Start Date",
 	}, {
 		Input:    []string{"get", "--end-date", "dummy"},
-		Output:   `parsing time "dummy" as "2020-01-01": cannot parse "dummy" as "2"`,
+		Output:   `parsing time "dummy" as "2006-01-02": cannot parse "dummy" as "2006"`,
 		TestName: "Invalid End Date",
 	}}
 

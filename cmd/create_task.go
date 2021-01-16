@@ -8,14 +8,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	taskName         string
-	taskLabel        string
-	taskDate         string
-	taskTimeInvested int
-	taskPeriodicity  string
-)
-
 func buildCreateTaskCmd(repository repository.Repository) *cobra.Command {
 
 	opts := &runOptions{}
@@ -24,6 +16,7 @@ func buildCreateTaskCmd(repository repository.Repository) *cobra.Command {
 		Short: "Crete a new task",
 		Long:  `Create a new task in the togolist`,
 		Run: func(cmd *cobra.Command, args []string) {
+
 			resp, err := service.Create(*&opts.TaskName, *&opts.TaskLabel, *&opts.TaskDate, *&opts.debugMode, *&opts.TaskTimeInvested, *&opts.TaskPeriodicity, repository)
 
 			if err != nil {

@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	api "todogolist/api/handler"
 	"todogolist/repository"
 
 	"github.com/gin-gonic/gin"
@@ -20,7 +19,7 @@ func TestCreateTaskHandler(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
 	r := gin.New()
-	r.POST("createtask/", api.CreateHandler(repository))
+	r.POST("createtask/", CreateHandler(repository))
 
 	t.Run("Invalid Request returns a 400", func(t *testing.T) {
 		createtaskrequests := taskRequest{TaskLabel: "work", TaskDate: "2020-12-12"}

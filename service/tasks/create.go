@@ -64,7 +64,7 @@ func generateTaskDomainSeries(taskList []models.TaskDomain, taskDomain models.Ta
 }
 
 //Create a new task in the repository db.
-func Create(taskName string, taskLabel string, taskDate string, debugMode bool, taskTimeInvested int, taskPeriodicity string, repository repository.Repository) (string, error) {
+func Create(taskName string, taskLabel string, taskDate string, taskTimeInvested int, taskPeriodicity string, debugMode bool, repository repository.Repository) (string, error) {
 	taskDateFormated, err := service.FormatTaskTimestamp(taskDate)
 	if err != nil {
 		return "", err

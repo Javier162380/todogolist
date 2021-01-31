@@ -45,7 +45,7 @@ func entRepositoryDomainWrapper(repositoryTasks []*ent.Task) []models.TaskDomain
 
 func (e *entApp) Setup(dryRun bool) (string, error) {
 	ctx := context.Background()
-	defer e.db.Close()
+	//defer e.db.Close()
 
 	switch dryRun {
 	case true:
@@ -71,7 +71,7 @@ func (e *entApp) Setup(dryRun bool) (string, error) {
 
 func (e *entApp) GetTask(taskFilterDomain models.TaskFilterDomain) ([]models.TaskDomainResponse, error) {
 	ctx := context.Background()
-	defer e.db.Close()
+	//defer e.db.Close()
 
 	queryBuilder := e.db.Task.Query()
 
@@ -110,7 +110,7 @@ func (e *entApp) GetTask(taskFilterDomain models.TaskFilterDomain) ([]models.Tas
 
 func (e *entApp) CreateTask(taskDomains []models.TaskDomain, debugMode bool) (string, error) {
 	ctx := context.Background()
-	defer e.db.Close()
+	//defer e.db.Close()
 	bulk := make([]*ent.TaskCreate, len(taskDomains))
 
 	for i, taskDomain := range taskDomains {
@@ -142,7 +142,7 @@ func (e *entApp) CreateTask(taskDomains []models.TaskDomain, debugMode bool) (st
 
 func (e *entApp) ListTask(taskFilterListDomain models.TaskFilterListDomain) ([]models.TaskDomainResponse, error) {
 	ctx := context.Background()
-	defer e.db.Close()
+	//defer e.db.Close()
 
 	tasks, err := e.db.Task.Query().Order(ent.Desc("task_date")).Limit(taskFilterListDomain.Limit).All(ctx)
 
@@ -156,7 +156,7 @@ func (e *entApp) ListTask(taskFilterListDomain models.TaskFilterListDomain) ([]m
 
 func (e *entApp) DeleteTask(taskDeleteDomain models.TaskDeleteDomain) (string, error) {
 	ctx := context.Background()
-	defer e.db.Close()
+	//defer e.db.Close()
 
 	_, err := e.db.Task.Delete().Where(task.TaskName(taskDeleteDomain.TaskName)).Exec(ctx)
 

@@ -1,7 +1,8 @@
-package api
+package infrastructure
 
 import (
 	"fmt"
+	api "todogolist/api/handler"
 	"todogolist/repository"
 
 	"github.com/gin-gonic/gin"
@@ -30,10 +31,11 @@ func NewServer(host string, port uint, repository repository.Repository) Server 
 }
 
 func (s *Server) registerRoutes() {
-	s.engine.GET("health/", func(c *gin.Context) {
+	s.engine.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Hello World"})
 	})
+	s.engine.POST("/createtask", api.CreateHandler(s.repository))
 
 }
 

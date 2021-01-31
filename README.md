@@ -1,6 +1,6 @@
 # todogolist.
 
-A CLI to control your life.
+A CLI to control your life. You could use the application via API also.
 
 ## Installation.
 
@@ -31,6 +31,7 @@ Available Commands:
   help        Help about any command
   list        List all task for a given date or a given label
   setup       Set up/update all the needed DB model
+  startapi    Start a new api server
 
 Flags:
   -h, --help   help for todogolist

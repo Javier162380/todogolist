@@ -16,7 +16,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 
 	dateRanges := []time.Time{}
 	switch periodicity {
-	case "w":
+	case "w", "weekly":
 		dateRange := int(endDate.Sub(startDate).Hours() / (24 * 7))
 
 		for date := 1; date <= dateRange; date++ {
@@ -26,7 +26,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 
 		return dateRanges
 
-	case "m":
+	case "m", "monthly":
 		dateRange := int(endDate.Sub(startDate).Hours() / (24 * 30))
 
 		for date := 1; date <= dateRange; date++ {
@@ -35,7 +35,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 		}
 		return dateRanges
 
-	case "d":
+	case "d", "daily":
 		dateRange := int(endDate.Sub(startDate).Hours() / 24)
 
 		for date := 1; date <= dateRange; date++ {

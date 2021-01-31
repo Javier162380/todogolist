@@ -10,7 +10,7 @@ import (
 
 func buildCreateTaskCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 	createTaskCmd := &cobra.Command{
 		Use:   "create",
 		Short: "Crete a new task",

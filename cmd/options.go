@@ -1,6 +1,6 @@
 package cmd
 
-type runOptions struct {
+type runCommandOptions struct {
 	debugMode        bool
 	dryRun           bool
 	TaskName         string
@@ -11,4 +11,9 @@ type runOptions struct {
 	TaskTimeInvested int
 	TaskPeriodicity  string
 	Limit            int
+}
+
+type runAPIOptions struct {
+	host string
+	port uint
 }

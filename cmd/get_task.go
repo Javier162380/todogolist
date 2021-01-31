@@ -10,7 +10,7 @@ import (
 
 func buildGetTaskCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 
 	getTaskCmd := &cobra.Command{
 		Use:   "get",

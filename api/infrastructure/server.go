@@ -36,6 +36,7 @@ func (s *Server) registerRoutes() {
 			"message": "Hello World"})
 	})
 	s.engine.POST("/createtask", api.CreateHandler(s.repository))
+	s.engine.GET("/gettask", api.GetHandler(s.repository))
 
 }
 

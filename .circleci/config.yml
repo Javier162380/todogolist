@@ -7,3 +7,4 @@ jobs:
     steps:
       - checkout
       - run: go test -v ./cmd
+      - run: go test -v ./api/handler

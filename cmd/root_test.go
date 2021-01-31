@@ -14,6 +14,7 @@ func TestCommandsUses(t *testing.T) {
 		"setup",
 		"delete",
 		"list",
+		"startapi",
 	}
 
 	for _, tc := range testcases {

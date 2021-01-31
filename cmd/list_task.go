@@ -10,7 +10,7 @@ import (
 
 func buildListTaskCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 
 	listTaskCmd := &cobra.Command{
 		Use:   "list",

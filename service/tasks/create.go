@@ -16,7 +16,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 
 	dateRanges := []time.Time{}
 	switch periodicity {
-	case "w":
+	case "w", "weekly":
 		dateRange := int(endDate.Sub(startDate).Hours() / (24 * 7))
 
 		for date := 1; date <= dateRange; date++ {
@@ -26,7 +26,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 
 		return dateRanges
 
-	case "m":
+	case "m", "monthly":
 		dateRange := int(endDate.Sub(startDate).Hours() / (24 * 30))
 
 		for date := 1; date <= dateRange; date++ {
@@ -35,7 +35,7 @@ func generateDateSeries(startDate time.Time, endDate time.Time, periodicity stri
 		}
 		return dateRanges
 
-	case "d":
+	case "d", "daily":
 		dateRange := int(endDate.Sub(startDate).Hours() / 24)
 
 		for date := 1; date <= dateRange; date++ {
@@ -64,7 +64,7 @@ func generateTaskDomainSeries(taskList []models.TaskDomain, taskDomain models.Ta
 }
 
 //Create a new task in the repository db.
-func Create(taskName string, taskLabel string, taskDate string, debugMode bool, taskTimeInvested int, taskPeriodicity string, repository repository.Repository) (string, error) {
+func Create(taskName string, taskLabel string, taskDate string, taskTimeInvested int, taskPeriodicity string, debugMode bool, repository repository.Repository) (string, error) {
 	taskDateFormated, err := service.FormatTaskTimestamp(taskDate)
 	if err != nil {
 		return "", err

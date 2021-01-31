@@ -48,7 +48,7 @@ You could easily use it create, update, get, list and delete your daily tasks.`,
 	rootCmd.AddCommand(buildListTaskCmd(repository))
 	rootCmd.AddCommand(buildSetUpCmd(repository))
 	rootCmd.AddCommand(buildDeleteTaskCmd(repository))
-
+	rootCmd.AddCommand(buildStartAPICmd(repository))
 	return rootCmd, nil
 
 }

@@ -10,7 +10,7 @@ import (
 
 func buildDeleteTaskCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 
 	deleteTaskCmd := &cobra.Command{
 		Use:   "delete",

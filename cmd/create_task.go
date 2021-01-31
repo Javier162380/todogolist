@@ -10,14 +10,14 @@ import (
 
 func buildCreateTaskCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 	createTaskCmd := &cobra.Command{
 		Use:   "create",
 		Short: "Crete a new task",
 		Long:  `Create a new task in the togolist`,
 		Run: func(cmd *cobra.Command, args []string) {
 
-			resp, err := service.Create(*&opts.TaskName, *&opts.TaskLabel, *&opts.TaskDate, *&opts.debugMode, *&opts.TaskTimeInvested, *&opts.TaskPeriodicity, repository)
+			resp, err := service.Create(*&opts.TaskName, *&opts.TaskLabel, *&opts.TaskDate, *&opts.TaskTimeInvested, *&opts.TaskPeriodicity, *&opts.debugMode, repository)
 
 			if err != nil {
 				fmt.Fprintf(cmd.OutOrStderr(), fmt.Sprintf("%s", err))

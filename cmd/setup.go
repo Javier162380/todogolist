@@ -11,7 +11,7 @@ import (
 
 func buildSetUpCmd(repository repository.Repository) *cobra.Command {
 
-	opts := &runOptions{}
+	opts := &runCommandOptions{}
 
 	setUpCmd := &cobra.Command{
 		Use:   "setup",

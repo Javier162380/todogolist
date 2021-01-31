@@ -21,7 +21,11 @@ func TestValidCreateTaskCommand(t *testing.T) {
 		Output: "Task Created Succesfully",
 	},
 		{
-			Input:  []string{"create", "--task-name", "test", "--task-label", "work", "--task-periodicity", "w", "--task-date", "2020-10-10T00:00:00.000Z"},
+			Input:  []string{"create", "--task-name", "test", "--task-label", "work", "--task-periodicity", "weekly", "--task-date", "2020-10-10T00:00:00.000Z"},
+			Output: "Task Created Succesfully",
+		},
+		{
+			Input:  []string{"create", "--task-name", "test", "--task-label", "work", "--task-periodicity", "monthly", "--task-date", "2020-10-10T00:00:00.000Z"},
 			Output: "Task Created Succesfully",
 		},
 		{

@@ -40,3 +40,19 @@ type TaskFilterListDomain struct {
 type TaskDeleteDomain struct {
 	TaskName string
 }
+
+// TaskStatsDomain model
+type TaskStatsDomain struct {
+	StartDate time.Time
+	EndDate   time.Time
+	Limit     int
+}
+
+// TaskStatsResponse model it is an aggregate over the task domain model.
+type TaskStatsResponse struct {
+	TaskDate              time.Time
+	TaskLabel             string
+	NumberofTasks         int
+	NumberofPeriodicTasks int
+	TaskTimeInvested      int
+}
